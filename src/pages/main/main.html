@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Main</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding>
+    Ikoneista tehty viesti tulee tähän
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-33 *ngFor="let item of items" (click)="itemTapped($event, item)">
+        <ion-icon [name]="item.icon" item-start></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -4,7 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { MainPage } from '../pages/main/main';
+import { OptionsPage } from '../pages/options/options';
+import { InfoPage } from '../pages/info/info';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -13,7 +15,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    MainPage,
+    OptionsPage,
+    InfoPage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    MainPage,
+    OptionsPage,
+    InfoPage
   ],
   providers: [
     StatusBar,
