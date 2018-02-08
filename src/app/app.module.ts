@@ -11,6 +11,8 @@ import { InfoPage } from '../pages/info/info';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Ng2EmojiModule } from 'ng2-emoji';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,6 +24,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    Ng2EmojiModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

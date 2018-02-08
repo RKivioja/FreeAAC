@@ -6,32 +6,37 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'main.html'
 })
 export class MainPage {
-  selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+
+  message: Array<String>;
+
+  symbols: Array<{ title: string, symbolImage: string }>;
+
+  static readonly DEFAULT_GRIDSIZE = 12;
+  gridSize: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+    this.message = [];
+    this.symbols = [];
+    this.gridSize = MainPage.DEFAULT_GRIDSIZE;
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+    this.loadSymbols();
+  }
+
+  loadSymbols() {
+    for (let i = 1; i <= this.gridSize; i++) {
+      this.symbols.push({
+        title: 'Symbol ' + i,
+        symbolImage: "symbol.png"
       });
     }
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(MainPage, {
-      item: item
-    });
+  symbolTapped(event, symbol) {
+    this.message.push(symbol.title);
+  }
+
+  backspaceTapped(event, symbol) {
+    this.message.pop();
   }
 }

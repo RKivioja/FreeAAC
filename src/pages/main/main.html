@@ -8,13 +8,18 @@
 </ion-header>
 
 <ion-content>
-  <div padding>
-    Ikoneista tehty viesti tulee tähän
+  <div>
+    <div class="message-box" padding>
+      <ion-col width-33 *ngFor="let part of message">
+        <span>{{part}}</span>
+      </ion-col>
+    </div>
+    <ion-icon name="backspace" (click)="backspaceTapped($event, item)"></ion-icon>
   </div>
   <ion-grid>
     <ion-row>
-      <ion-col width-33 *ngFor="let item of items" (click)="itemTapped($event, item)">
-        <ion-icon [name]="item.icon" item-start></ion-icon>
+      <ion-col width-33 *ngFor="let symbol of symbols" (click)="symbolTapped($event, symbol)">
+        <span>{{symbol.title}}</span>
       </ion-col>
     </ion-row>
   </ion-grid>
