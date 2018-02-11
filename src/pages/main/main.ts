@@ -9,6 +9,8 @@ export class MainPage {
 
   message: Array<String>;
 
+  cardOptions: Array<{ name: string, location: string }>;
+
   symbols: Array<{ title: string, symbolImage: string }>;
 
   static readonly DEFAULT_GRIDSIZE = 12;
@@ -17,13 +19,33 @@ export class MainPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.message = [];
+    this.cardOptions = [];
     this.symbols = [];
     this.gridSize = MainPage.DEFAULT_GRIDSIZE;
 
-    this.loadSymbols();
+    this.loadCardOptions();
+    this.loadSymbols("card");
   }
 
-  loadSymbols() {
+  loadCardOptions() {
+    //TODO: load card options from local storage
+    this.cardOptions.push({
+      name: 'Emoji',
+      location: 'C:/'
+    });
+    this.cardOptions.push({
+      name: 'Emoji2',
+      location: 'C:/'
+    });
+  }
+
+  cardSelected() {
+    //TODO: load a card from local storage
+    this.loadSymbols("card");
+  }
+
+  loadSymbols(card) {
+    this.symbols.length = 0;
     for (let i = 1; i <= this.gridSize; i++) {
       this.symbols.push({
         title: 'Symbol ' + i,
@@ -36,7 +58,7 @@ export class MainPage {
     this.message.push(symbol.title);
   }
 
-  backspaceTapped(event, symbol) {
+  backspaceTapped() {
     this.message.pop();
   }
 }

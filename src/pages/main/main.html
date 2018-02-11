@@ -14,8 +14,16 @@
         <span>{{part}}</span>
       </ion-col>
     </div>
-    <ion-icon name="backspace" (click)="backspaceTapped($event, item)"></ion-icon>
+    <ion-icon name="backspace" (click)="backspaceTapped()"></ion-icon>
   </div>
+  <ion-list>
+    <ion-item>
+      <ion-label>Card</ion-label>
+      <ion-select [(ngModel)]="cardOption" (ionChange)="cardSelected()">
+        <ion-option *ngFor="let cardOption of cardOptions">{{cardOption.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
   <ion-grid>
     <ion-row>
       <ion-col width-33 *ngFor="let symbol of symbols" (click)="symbolTapped($event, symbol)">
