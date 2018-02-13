@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
 import { OptionsPage } from '../pages/options/options';
 import { InfoPage } from '../pages/info/info';
+import { CardcreatePage } from '../pages/cardcreate/cardcreate';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +20,8 @@ import { Ng2EmojiModule } from 'ng2-emoji';
     HomePage,
     MainPage,
     OptionsPage,
-    InfoPage
+    InfoPage,
+    CardcreatePage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { Ng2EmojiModule } from 'ng2-emoji';
     HomePage,
     MainPage,
     OptionsPage,
-    InfoPage
+    InfoPage,
+    CardcreatePage
   ],
   providers: [
     StatusBar,

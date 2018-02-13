@@ -8,27 +8,31 @@
 </ion-header>
 
 <ion-content>
-  <div>
+  <ion-row center>
     <div class="message-box" padding>
       <ion-col width-33 *ngFor="let part of message">
         <span>{{part}}</span>
       </ion-col>
     </div>
-    <ion-icon name="backspace" (click)="backspaceTapped()"></ion-icon>
-  </div>
-  <ion-list>
-    <ion-item>
-      <ion-label>Card</ion-label>
-      <ion-select [(ngModel)]="cardOption" (ionChange)="cardSelected()">
-        <ion-option *ngFor="let cardOption of cardOptions">{{cardOption.name}}</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-  <ion-grid>
-    <ion-row>
-      <ion-col width-33 *ngFor="let symbol of symbols" (click)="symbolTapped($event, symbol)">
-        <span>{{symbol.title}}</span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-icon name="backspace" padding (click)="backspaceTapped()"></ion-icon>
+  </ion-row>
+  <ion-row>
+    <ion-list class="card-list" col-12>
+      <ion-item>
+        <ion-label>Card</ion-label>
+        <ion-select [(ngModel)]="cardOption" (ionChange)="cardSelected()">
+          <ion-option *ngFor="let cardOption of cardOptions">{{cardOption.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-row>
+  <ion-row>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 *ngFor="let symbol of symbols" (click)="symbolTapped($event, symbol)">
+          <span>{{symbol.title}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-row>
 </ion-content>

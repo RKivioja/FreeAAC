@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CardcreatePage } from '../cardcreate/cardcreate';
 
 /**
- * Generated class for the OptionsPage page.
+ * Generated class for the CardcreatePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,16 +10,17 @@ import { CardcreatePage } from '../cardcreate/cardcreate';
 
 @IonicPage()
 @Component({
-  selector: 'page-options',
-  templateUrl: 'options.html',
+  selector: 'page-cardcreate',
+  templateUrl: 'cardcreate.html',
 })
-export class OptionsPage {
+export class CardcreatePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    //TODO: create class for cards
   }
 
-  createNewCardButtonTapped() {
-    this.navCtrl.push(CardcreatePage);
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CardcreatePage');
   }
 
 }

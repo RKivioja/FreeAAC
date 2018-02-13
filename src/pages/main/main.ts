@@ -8,17 +8,20 @@ import { NavController, NavParams } from 'ionic-angular';
 export class MainPage {
 
   message: Array<String>;
+  messageSize: number;
+  static readonly DEFAULT_MESSAGESIZE = 3;
 
   cardOptions: Array<{ name: string, location: string }>;
 
   symbols: Array<{ title: string, symbolImage: string }>;
 
-  static readonly DEFAULT_GRIDSIZE = 12;
   gridSize: number;
+  static readonly DEFAULT_GRIDSIZE = 12;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.message = [];
+    this.messageSize = MainPage.DEFAULT_MESSAGESIZE;
     this.cardOptions = [];
     this.symbols = [];
     this.gridSize = MainPage.DEFAULT_GRIDSIZE;
@@ -28,7 +31,7 @@ export class MainPage {
   }
 
   loadCardOptions() {
-    //TODO: load card options from local storage
+    //TODO: load card options from storage
     this.cardOptions.push({
       name: 'Emoji',
       location: 'C:/'
@@ -40,8 +43,10 @@ export class MainPage {
   }
 
   cardSelected() {
-    //TODO: load a card from local storage
-    this.loadSymbols("card");
+    //TODO: load a card from storage
+    var loadedCard = "card";
+
+    this.loadSymbols(loadedCard);
   }
 
   loadSymbols(card) {
@@ -55,7 +60,9 @@ export class MainPage {
   }
 
   symbolTapped(event, symbol) {
-    this.message.push(symbol.title);
+    if (this.message.length < this.messageSize) {
+      this.message.push(symbol.title);
+    }
   }
 
   backspaceTapped() {
