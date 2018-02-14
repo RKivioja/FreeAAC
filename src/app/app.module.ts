@@ -13,6 +13,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Ng2EmojiModule } from 'ng2-emoji';
+import { PageproviderProvider } from '../providers/pageprovider/pageprovider';
+import { PageProvider } from '../providers/page/page';
+import { PageDataProvider } from '../providers/page-data/page-data';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { Ng2EmojiModule } from 'ng2-emoji';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PageproviderProvider,
+    PageProvider,
+    PageDataProvider
   ]
 })
 export class AppModule {}
