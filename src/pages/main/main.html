@@ -29,8 +29,8 @@
   <ion-row>
     <ion-grid>
       <ion-row>
-        <ion-col col-4 *ngFor="let symbol of symbols" (click)="symbolTapped($event, symbol)">
-          <span>{{symbol.title}}</span>
+        <ion-col col-4 *ngFor="let wordSymbol of wordSymbols" (click)="wordSymbolTapped($event, wordSymbol)">
+          <span>{{wordSymbol.title}}</span>
         </ion-col>
       </ion-row>
     </ion-grid>

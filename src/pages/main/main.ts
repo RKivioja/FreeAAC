@@ -11,9 +11,9 @@ export class MainPage {
   messageSize: number;
   static readonly DEFAULT_MESSAGESIZE = 3;
 
+  //TODO: utilize new classes
   cardOptions: Array<{ name: string, location: string }>;
-
-  symbols: Array<{ title: string, symbolImage: string }>;
+  wordSymbols: Array<{ title: string, symbolImage: string }>;
 
   gridSize: number;
   static readonly DEFAULT_GRIDSIZE = 12;
@@ -23,11 +23,11 @@ export class MainPage {
     this.message = [];
     this.messageSize = MainPage.DEFAULT_MESSAGESIZE;
     this.cardOptions = [];
-    this.symbols = [];
+    this.wordSymbols = [];
     this.gridSize = MainPage.DEFAULT_GRIDSIZE;
 
     this.loadCardOptions();
-    this.loadSymbols("card");
+    this.loadWordSymbols("card");
   }
 
   loadCardOptions() {
@@ -46,22 +46,22 @@ export class MainPage {
     //TODO: load a card from storage
     var loadedCard = "card";
 
-    this.loadSymbols(loadedCard);
+    this.loadWordSymbols(loadedCard);
   }
 
-  loadSymbols(card) {
-    this.symbols.length = 0;
+  loadWordSymbols(card) {
+    this.wordSymbols.length = 0;
     for (let i = 1; i <= this.gridSize; i++) {
-      this.symbols.push({
+      this.wordSymbols.push({
         title: 'Symbol ' + i,
         symbolImage: "symbol.png"
       });
     }
   }
 
-  symbolTapped(event, symbol) {
+  wordSymbolTapped(event, wordSymbol) {
     if (this.message.length < this.messageSize) {
-      this.message.push(symbol.title);
+      this.message.push(wordSymbol.title);
     }
   }
 

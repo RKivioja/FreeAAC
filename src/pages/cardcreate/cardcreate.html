@@ -18,13 +18,22 @@
     <ion-input type="text" value="" placeholder="Card name"></ion-input>
   </ion-item>
   <ion-row>
+    <ion-list class="card-size-list" col-12>
+      <ion-item>
+        <ion-label>Card size</ion-label>
+        <ion-select [(ngModel)]="gridSize" (ionChange)="sizeSelected(2)">
+          <ion-option *ngFor="let sizeOption of sizeOptions">
+            {{sizeOption.gridSize}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-row>
+  <ion-row>
     <ion-grid>
       <ion-row>
-        <!--<ion-col col-4 *ngFor="let symbol of selectedCard.symbols">
+        <ion-col col-4 *ngFor="let symbol of selectedCard.symbols">
           <span>{{symbol.name}}</span>
-        </ion-col>-->
-        <ion-col col-4>
-          <span>test</span>
         </ion-col>
       </ion-row>
     </ion-grid>
