@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Main</ion-title>
+    <ion-title>{{ 'AAC' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -19,7 +19,7 @@
   <ion-row>
     <ion-list class="card-list" col-12>
       <ion-item>
-        <ion-label>Card</ion-label>
+        <ion-label>{{ 'Kortti' | translate }}</ion-label>
         <ion-select [(ngModel)]="cardOption" (ionChange)="cardSelected()">
           <ion-option *ngFor="let cardOption of cardOptions">{{cardOption.name}}</ion-option>
         </ion-select>

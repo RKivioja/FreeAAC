@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Options</ion-title>
+    <ion-title>{{ 'Asetukset' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,8 +15,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item secondary (click)="createNewCardButtonTapped()">Create new card</button>
-    <button ion-item secondary>Change language</button>
-    <button ion-item secondary>Message settings</button>
+    <button ion-item secondary (click)="createNewCardButtonTapped()">{{ 'Luo uusi kortti' | translate }}</button>
+    <button ion-item secondary>{{ 'Viestiasetukset' | translate }}</button>
   </ion-list>
 </ion-content>

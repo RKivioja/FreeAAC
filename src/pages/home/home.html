@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{ 'kebab' | translate }}</ion-title>
+    <ion-title>{{ 'Koti' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,9 +11,9 @@
   <h3 padding>FreeAAC</h3>
 
   <ion-list>
-    <button ion-item secondary (click)="startButtonTapped($event, item)">Start</button>
-    <button ion-item secondary (click)="optionsButtonTapped($event, item)">Options</button>
-    <button ion-item secondary (click)="infoButtonTapped($event, item)">Info</button>
+    <button ion-item secondary (click)="startButtonTapped($event, item)">{{ 'Aloita' | translate }}</button>
+    <button ion-item secondary (click)="optionsButtonTapped($event, item)">{{ 'Asetukset' | translate }}</button>
+    <button ion-item secondary (click)="infoButtonTapped($event, item)">{{ 'Info' | translate }}</button>
   </ion-list>
 
 </ion-content>

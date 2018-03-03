@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Create Card</ion-title>
+    <ion-title>{{ 'Luo uusi kortti' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,12 +15,12 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-input type="text" value="" placeholder="Card name"></ion-input>
+    <ion-input type="text" value="" placeholder="{{ 'Kortin nimi' | translate }}"></ion-input>
   </ion-item>
   <ion-row>
     <ion-list class="card-size-list" col-12>
       <ion-item>
-        <ion-label>Card size</ion-label>
+        <ion-label>{{ 'Kortin koko' | translate }}</ion-label>
         <ion-select [(ngModel)]="gridSize" (ionChange)="sizeSelected(2)">
           <ion-option *ngFor="let sizeOption of sizeOptions">
             {{sizeOption.gridSize}}
