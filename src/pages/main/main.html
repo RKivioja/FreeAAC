@@ -9,12 +9,15 @@
 
 <ion-content>
   <ion-row center>
-    <div class="message-box" padding>
+    <div col-8 class="message-box" padding margin-vertical>
       <ion-col width-33 *ngFor="let part of message">
         <span>{{part}}</span>
       </ion-col>
     </div>
-    <ion-icon name="backspace" padding (click)="backspaceTapped()"></ion-icon>
+    <div col-2>
+      <ion-icon class="icon" margin-top name="backspace" (click)="backspaceTapped()"></ion-icon>
+      <ion-icon class="icon" margin-top name="volume-up"></ion-icon>
+    </div>
   </ion-row>
   <ion-row>
     <ion-list class="card-list" col-12>

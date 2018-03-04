@@ -2,13 +2,26 @@ import { WordSymbol } from '../classes/wordsymbol';
 
 export class Card {
 
-  private name: string;
-  private gridSize: number;
-  private symbols: Array<WordSymbol>;
+  private _name: string;
+  private _gridSize: number;
+  private _wordSymbols: Array<WordSymbol>;
 
   constructor(Name: string, GridSize: number, Symbols: Array<WordSymbol>) {
-    this.name = Name;
-    this.gridSize = GridSize;
-    this.symbols = Symbols;
+    this._name = Name;
+    this._gridSize = GridSize;
+    this._wordSymbols = Symbols;
   }
+
+  set name(newName: string) {
+    this._name = newName;
+  }
+
+  set wordSymbols(newWordSymbols: Array<WordSymbol>) {
+    this._wordSymbols = newWordSymbols;
+  }
+
+  get gridSize() {
+    return this._gridSize;
+  }
+
 }

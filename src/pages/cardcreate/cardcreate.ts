@@ -11,23 +11,15 @@ import { WordSymbol } from '../../classes/wordsymbol';
   })
 
 export class CardcreatePage {
-
-  cards: Array<Card>;
+  
+  card: Card;
   sizeOptions: Array<{ gridSize: number }>;
-  gridSize: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.cards = [];
     this.sizeOptions = [];
-    this.gridSize = null;
+    this.card = new Card(null, 4, new Array<WordSymbol>());
 
-    this.loadCards();
     this.loadSizeOptions();
-  }
-
-  loadCards() {
-    //TODO: load cards from storage
-    this.cards.push(new Card('Emoji', 4, new Array<WordSymbol>()));
   }
 
   loadSizeOptions() {
@@ -46,9 +38,14 @@ export class CardcreatePage {
   }
 
   sizeSelected() {
-    //TODO: fix this select so that the frontend shows gridSize in form "2x2" or "2*2"
-    console.log(this.gridSize);
-    this.gridSize = this.gridSize;
+    let wordSymbols: Array<WordSymbol> = [];
+    
+    for (let i = 0; i < this.card.wordSymbols.length; i++)
+    {
+      wordSymbols.push(new WordSymbol("test", "test"));
+    } 
+
+    this.card.wordSymbols = wordSymbols;
   }
 
 }
