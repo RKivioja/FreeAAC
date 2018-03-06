@@ -21,9 +21,9 @@
     <ion-list class="card-size-list" col-12>
       <ion-item>
         <ion-label>{{ 'Kortin koko' | translate }}</ion-label>
-        <ion-select [(ngModel)]="card._gridSize" (ionChange)="sizeSelected()">
+        <ion-select [(ngModel)]="card.gridSize" (ionChange)="sizeSelected()">
           <ion-option *ngFor="let sizeOption of sizeOptions">
-            {{sizeOption.gridSize}}{{ '*' | translate }}{{sizeOption.gridSize}}
+            {{sizeOption.gridSize}}
           </ion-option>
         </ion-select>
       </ion-item>
@@ -32,8 +32,8 @@
   <ion-row>
     <ion-grid>
       <ion-row>
-        <ion-col col-4 *ngFor="let wordSymbol of card._wordSymbols">
-          <button ion-button>{{wordSymbol.name}}</button>
+        <ion-col col-4 *ngFor="let wordSymbol of card.wordSymbols">
+          <button ion-button (click)="promptForWordSymbol()">{{wordSymbol.name}}</button>
         </ion-col>
       </ion-row>
     </ion-grid>

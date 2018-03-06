@@ -20,6 +20,10 @@ export class Card {
     this._wordSymbols = newWordSymbols;
   }
 
+  get wordSymbols() {
+    return this._wordSymbols;
+  }
+
   get gridSize() {
     return this._gridSize;
   }

@@ -1,10 +1,18 @@
 export class WordSymbol {
 
-  private name: string;
-  private symbolImage: string;
+  private _name: string;
+  private _symbolImage: string;
 
   constructor(Name: string, symbolImage: string) {
-    this.name = Name,
-    this.symbolImage = symbolImage;
+    this._name = Name,
+    this._symbolImage = symbolImage;
+  }
+
+  set name(newName: string) {
+    this._name = newName;
+  }
+
+  get name() {
+    return this._name;
   }
 }
