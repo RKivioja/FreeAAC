@@ -33,7 +33,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4 *ngFor="let wordSymbol of card.wordSymbols">
-          <button ion-button (click)="promptForWordSymbol()">{{wordSymbol.name}}</button>
+          <button ion-button (click)="promptForWordSymbol(wordSymbol)">{{wordSymbol.name}}</button>
         </ion-col>
       </ion-row>
     </ion-grid>

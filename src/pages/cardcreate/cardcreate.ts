@@ -21,6 +21,7 @@ export class CardcreatePage {
     this.card = new Card(null, 4, new Array<WordSymbol>());
 
     this.loadSizeOptions();
+    this.fillGrid();
   }
 
   loadSizeOptions() {
@@ -38,7 +39,8 @@ export class CardcreatePage {
     });
   }
 
-  sizeSelected() {
+  fillGrid()
+  {
     let wordSymbols: Array<WordSymbol> = [];
     
     for (let i = 0; i < this.card.gridSize; i++)
@@ -47,10 +49,14 @@ export class CardcreatePage {
     } 
 
     this.card.wordSymbols = wordSymbols;
-    console.log(this.card);
   }
 
-  promptForWordSymbol() {
+  sizeSelected() {
+    this.card.wordSymbols = [];
+    this.fillGrid();
+  }
+
+  promptForWordSymbol(wordSymbol) {
     let prompt = this.alertCtrl.create({
       title: 'Lisää symboli',
       inputs: [
@@ -62,14 +68,11 @@ export class CardcreatePage {
       buttons: [
         {
           text: 'Peruuta'
-          /*handler: data => {
-            console.log(data);
-          }*/
         },
         {
           text: 'Tallenna',
           handler: data => {
-            this.card.wordSymbols[0].name = data.symbolname;
+            this.card.wordSymbols[this.card.wordSymbols.indexOf(wordSymbol)].name = data.symbolname;
             console.log(data);
           }
         }
