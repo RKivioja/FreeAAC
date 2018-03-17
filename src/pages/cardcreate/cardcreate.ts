@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+
+import { CardDataProvider } from '../../providers/card-data/card-data';
 
 import { Card } from '../../classes/card';
 import { WordSymbol } from '../../classes/wordsymbol';
+
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -16,7 +21,8 @@ export class CardcreatePage {
   card: Card;
   sizeOptions: Array<{ gridSize: number }>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
+              public toastCtrl: ToastController, public cardDataProvider: CardDataProvider) {
     this.sizeOptions = [];
     this.card = new Card(null, 4, new Array<WordSymbol>());
 
@@ -73,12 +79,30 @@ export class CardcreatePage {
           text: 'Tallenna',
           handler: data => {
             this.card.wordSymbols[this.card.wordSymbols.indexOf(wordSymbol)].name = data.symbolname;
-            console.log(data);
           }
         }
       ]
     });
     prompt.present();
-}
+  }
 
+  saveButtonTapped() {
+    this.saveCardData();
+
+    this.navCtrl.push(HomePage);
+
+    let cardSavedToast = this.toastCtrl.create({
+      message: 'Kortin tallentaminen onnistui',
+      duration: 3000
+    });
+    cardSavedToast.present();
+  }
+
+  cancelButtonTapped() {
+    this.navCtrl.pop();
+  }
+
+  saveCardData() {
+    this.cardDataProvider.setMessage("kebab");
+  }
 }

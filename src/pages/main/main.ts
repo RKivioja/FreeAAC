@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { CardDataProvider } from '../../providers/card-data/card-data';
+
 @Component({
   selector: 'page-main',
   templateUrl: 'main.html'
@@ -18,7 +20,7 @@ export class MainPage {
   gridSize: number;
   static readonly DEFAULT_GRIDSIZE = 12;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private cardDataProvider: CardDataProvider) {
 
     this.message = [];
     this.messageSize = MainPage.DEFAULT_MESSAGESIZE;
@@ -33,7 +35,7 @@ export class MainPage {
   loadCardOptions() {
     //TODO: load card options from storage
     this.cardOptions.push({
-      name: 'Emoji',
+      name: this.cardDataProvider.message,
       location: 'C:/'
     });
     this.cardOptions.push({
