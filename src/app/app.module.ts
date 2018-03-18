@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular'
+import { FormsModule } from '@angular/forms'
 
 //translation import
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -44,7 +45,8 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

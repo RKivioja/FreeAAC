@@ -23,8 +23,11 @@
     <ion-list class="card-list" col-12>
       <ion-item>
         <ion-label>{{ 'Kortti' | translate }}</ion-label>
-        <ion-select [(ngModel)]="cardOption" (ionChange)="cardSelected()">
-          <ion-option *ngFor="let cardOption of cardOptions">{{cardOption.name}}</ion-option>
+        <!-- <ion-select [(ngModel)]="cardOptions" (ionChange)="cardSelected()">
+          <ion-option *ngFor="let card of cardOptions">{{card.name}}</ion-option>
+        </ion-select> -->
+        <ion-select [(ngModel)]="cardOption" (click)="cardOptionsTapped()">
+            <ion-option *ngFor="let cardOption of cardOptions">{{cardOption.name}}</ion-option>
         </ion-select>
       </ion-item>
     </ion-list>
@@ -33,7 +36,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4 *ngFor="let wordSymbol of wordSymbols" (click)="wordSymbolTapped($event, wordSymbol)">
-          <span>{{wordSymbol.title}}</span>
+          <span>{{wordSymbol.name}}</span>
         </ion-col>
       </ion-row>
     </ion-grid>

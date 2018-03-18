@@ -16,6 +16,10 @@ export class Card {
     this._name = newName;
   }
 
+  get name() {
+    return this._name;
+  }
+
   set wordSymbols(newWordSymbols: Array<WordSymbol>) {
     this._wordSymbols = newWordSymbols;
   }

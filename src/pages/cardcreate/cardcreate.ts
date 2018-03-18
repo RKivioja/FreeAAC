@@ -20,29 +20,25 @@ export class CardcreatePage {
   
   card: Card;
   sizeOptions: Array<{ gridSize: number }>;
+  cardName: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
               public toastCtrl: ToastController, public cardDataProvider: CardDataProvider) {
     this.sizeOptions = [];
-    this.card = new Card(null, 4, new Array<WordSymbol>());
+    this.card = new Card("", 4, new Array<WordSymbol>());
+    this.cardName = "";
 
     this.loadSizeOptions();
     this.fillGrid();
   }
 
   loadSizeOptions() {
-    this.sizeOptions.push({
-      gridSize: 2
-    });
-    this.sizeOptions.push({
-      gridSize: 4
-    });
-    this.sizeOptions.push({
-      gridSize: 8
-    });
-    this.sizeOptions.push({
-      gridSize: 12
-    });
+    for (let i = 2; i <= 12; i = i + 2)
+    {
+      this.sizeOptions.push({
+        gridSize: i
+      });
+    }
   }
 
   fillGrid()
@@ -103,6 +99,7 @@ export class CardcreatePage {
   }
 
   saveCardData() {
-    this.cardDataProvider.setMessage("kebab");
+    this.card.name = this.cardName;
+    this.cardDataProvider.saveCard(this.card);
   }
 }

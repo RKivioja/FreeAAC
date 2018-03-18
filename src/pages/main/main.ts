@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { Card } from '../../classes/card';
+
 import { CardDataProvider } from '../../providers/card-data/card-data';
+import { WordSymbol } from '../../classes/wordsymbol';
 
 @Component({
   selector: 'page-main',
@@ -13,9 +16,8 @@ export class MainPage {
   messageSize: number;
   static readonly DEFAULT_MESSAGESIZE = 3;
 
-  //TODO: utilize new classes
-  cardOptions: Array<{ name: string, location: string }>;
-  wordSymbols: Array<{ title: string, symbolImage: string }>;
+  cardOptions: Array<Card>;
+  wordSymbols: Array<WordSymbol>;
 
   gridSize: number;
   static readonly DEFAULT_GRIDSIZE = 12;
@@ -33,19 +35,14 @@ export class MainPage {
   }
 
   loadCardOptions() {
-    //TODO: load card options from storage
-    this.cardOptions.push({
-      name: this.cardDataProvider.message,
-      location: 'C:/'
-    });
-    this.cardOptions.push({
-      name: 'Emoji2',
-      location: 'C:/'
-    });
+    for(var card of this.cardDataProvider.cards)
+    {
+      this.cardOptions.push(card);
+    }
   }
 
   cardSelected() {
-    //TODO: load a card from storage
+    //TODO: load card symbols from storage
     var loadedCard = "card";
 
     this.loadWordSymbols(loadedCard);
@@ -54,10 +51,7 @@ export class MainPage {
   loadWordSymbols(card) {
     this.wordSymbols.length = 0;
     for (let i = 1; i <= this.gridSize; i++) {
-      this.wordSymbols.push({
-        title: 'Symbol ' + i,
-        symbolImage: "symbol.png"
-      });
+      this.wordSymbols.push(new WordSymbol('Symbol ' + i, "symbol.png"));
     }
   }
 
@@ -69,5 +63,9 @@ export class MainPage {
 
   backspaceTapped() {
     this.message.pop();
+  }
+
+  cardOptionsTapped() {
+    console.log(this.cardOptions);
   }
 }
