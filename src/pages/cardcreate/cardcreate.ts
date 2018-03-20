@@ -21,6 +21,7 @@ export class CardcreatePage {
   card: Card;
   sizeOptions: Array<{ gridSize: number }>;
   cardName: string;
+  selectedGridSize: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
               public toastCtrl: ToastController, public cardDataProvider: CardDataProvider) {
@@ -54,6 +55,7 @@ export class CardcreatePage {
   }
 
   sizeSelected() {
+    this.card.gridSize = this.selectedGridSize;
     this.card.wordSymbols = [];
     this.fillGrid();
   }

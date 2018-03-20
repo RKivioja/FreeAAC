@@ -32,4 +32,8 @@ export class Card {
     return this._gridSize;
   }
 
+  set gridSize(newGridSize) {
+    this._gridSize = newGridSize;
+  }
+
 }

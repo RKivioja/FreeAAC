@@ -25,7 +25,6 @@ export class MainPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private cardDataProvider: CardDataProvider) {
-
     this.message = [];
     this.messageSize = MainPage.DEFAULT_MESSAGESIZE;
     this.cardOptions = [];
@@ -36,25 +35,17 @@ export class MainPage {
   }
 
   loadCardOptions() {
-    for(var card of this.cardDataProvider.cards)
-    {
-      this.cardOptions.push(card);
-    }
+    this.cardOptions = this.cardDataProvider.cards;
   }
 
-  cardSelected(cardName) {
+  cardSelected() {
     var loadedCard = this.cardDataProvider.getCard(this.selectedCardName);
-
     this.loadWordSymbols(loadedCard);
   }
 
   loadWordSymbols(card) {
-    this.wordSymbols.length = 0;
+    this.wordSymbols = card.wordSymbols;
     this.gridSize = card.gridSize;
-
-    for (let i = 1; i <= this.gridSize; i++) {
-      this.wordSymbols.push(new WordSymbol('Symbol ' + i, "symbol.png"));
-    }
   }
 
   wordSymbolTapped(event, wordSymbol) {

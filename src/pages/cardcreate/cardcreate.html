@@ -14,7 +14,7 @@
     <ion-list class="card-size-list" col-12>
       <ion-item>
         <ion-label>{{ 'Kortin koko' | translate }}</ion-label>
-        <ion-select [(ngModel)]="card.gridSize" (ionChange)="sizeSelected()">
+        <ion-select [(ngModel)]="selectedGridSize" (ionChange)="sizeSelected()">
           <ion-option *ngFor="let sizeOption of sizeOptions">
             {{sizeOption.gridSize}}
           </ion-option>
