@@ -23,11 +23,8 @@
     <ion-list class="card-list" col-12>
       <ion-item>
         <ion-label>{{ 'Kortti' | translate }}</ion-label>
-        <!-- <ion-select [(ngModel)]="cardOptions" (ionChange)="cardSelected()">
-          <ion-option *ngFor="let card of cardOptions">{{card.name}}</ion-option>
-        </ion-select> -->
-        <ion-select [(ngModel)]="cardOption" (click)="cardOptionsTapped()">
-            <ion-option *ngFor="let cardOption of cardOptions">{{cardOption.name}}</ion-option>
+        <ion-select [(ngModel)]="selectedCardName" (ionChange)="cardSelected()">
+            <ion-option *ngFor="let cardOption of cardOptions" value="{{cardOption.name}}">{{cardOption.name}}</ion-option>
         </ion-select>
       </ion-item>
     </ion-list>

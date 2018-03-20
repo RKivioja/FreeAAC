@@ -16,11 +16,13 @@ export class MainPage {
   messageSize: number;
   static readonly DEFAULT_MESSAGESIZE = 3;
 
+  selectedCardName: string;
   cardOptions: Array<Card>;
   wordSymbols: Array<WordSymbol>;
 
   gridSize: number;
   static readonly DEFAULT_GRIDSIZE = 12;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private cardDataProvider: CardDataProvider) {
 
@@ -31,7 +33,6 @@ export class MainPage {
     this.gridSize = MainPage.DEFAULT_GRIDSIZE;
 
     this.loadCardOptions();
-    this.loadWordSymbols("card");
   }
 
   loadCardOptions() {
@@ -41,15 +42,16 @@ export class MainPage {
     }
   }
 
-  cardSelected() {
-    //TODO: load card symbols from storage
-    var loadedCard = "card";
+  cardSelected(cardName) {
+    var loadedCard = this.cardDataProvider.getCard(this.selectedCardName);
 
     this.loadWordSymbols(loadedCard);
   }
 
   loadWordSymbols(card) {
     this.wordSymbols.length = 0;
+    this.gridSize = card.gridSize;
+
     for (let i = 1; i <= this.gridSize; i++) {
       this.wordSymbols.push(new WordSymbol('Symbol ' + i, "symbol.png"));
     }
@@ -57,15 +59,11 @@ export class MainPage {
 
   wordSymbolTapped(event, wordSymbol) {
     if (this.message.length < this.messageSize) {
-      this.message.push(wordSymbol.title);
+      this.message.push(wordSymbol.name);
     }
   }
 
   backspaceTapped() {
     this.message.pop();
-  }
-
-  cardOptionsTapped() {
-    console.log(this.cardOptions);
   }
 }
