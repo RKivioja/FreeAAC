@@ -18,4 +18,10 @@ export class CarddeletePage {
     this.cards = this.cardDataProvider.getCards();
   }
 
+  cardDeleteTapped(card)
+  {
+    this.cardDataProvider.deleteCard(card);
+    this.cards = this.cardDataProvider.getCards();
+  }
+
 }

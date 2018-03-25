@@ -7,8 +7,8 @@
 <ion-content padding>
     <ion-list *ngFor="let card of cards">
         <ion-item>
-            {{card.name}}
-          <button ion-button item-end>{{ 'Poista' | translate }}</button>
+          <span>{{card.name}}</span>
+          <button ion-button item-end (click)="cardDeleteTapped(card)">{{ 'Poista' | translate }}</button>
         </ion-item>
     </ion-list>
 </ion-content>

@@ -16,6 +16,13 @@ export class CardDataProvider {
     this.cards.push(card);
   }
 
+  deleteCard(card) {
+    var index = this.cards.indexOf(card, 0);
+    if (index > -1) {
+      this.cards.splice(index, 1);
+    }
+  }
+
   getCardName() {
     return this.cards[0].name;
   }
