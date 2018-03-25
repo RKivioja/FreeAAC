@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CardcreatePage } from '../cardcreate/cardcreate';
-
-/**
- * Generated class for the OptionsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CarddeletePage } from '../carddelete/carddelete';
 
 @IonicPage()
 @Component({
@@ -21,6 +15,10 @@ export class OptionsPage {
 
   createNewCardButtonTapped() {
     this.navCtrl.push(CardcreatePage);
+  }
+
+  deleteCardButtonTapped() {
+    this.navCtrl.push(CarddeletePage);
   }
 
 }

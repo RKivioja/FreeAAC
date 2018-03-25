@@ -16,6 +16,6 @@
 <ion-content padding>
   <ion-list>
     <button ion-item secondary (click)="createNewCardButtonTapped()">{{ 'Luo uusi kortti' | translate }}</button>
-    <button ion-item secondary>{{ 'Viestiasetukset' | translate }}</button>
+    <button ion-item secondary (click)="deleteCardButtonTapped()">{{ 'Poista kortti' | translate }}</button>
   </ion-list>
 </ion-content>

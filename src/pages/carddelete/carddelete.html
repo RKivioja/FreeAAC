@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'Poista kortti' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list *ngFor="let card of cards">
+        <ion-item>
+            {{card.name}}
+          <button ion-button item-end>{{ 'Poista' | translate }}</button>
+        </ion-item>
+    </ion-list>
+</ion-content>

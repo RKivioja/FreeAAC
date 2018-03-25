@@ -25,4 +25,9 @@ export class CardDataProvider {
     //TODO: error handling
     return this.cards.find(_ => _.name === cardName);
   }
+
+  getCards()
+  {
+    return this.cards;
+  }
 }
