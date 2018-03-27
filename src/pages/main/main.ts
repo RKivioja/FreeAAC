@@ -23,7 +23,6 @@ export class MainPage {
   gridSize: number;
   static readonly DEFAULT_GRIDSIZE = 12;
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private cardDataProvider: CardDataProvider) {
     this.message = [];
     this.messageSize = MainPage.DEFAULT_MESSAGESIZE;

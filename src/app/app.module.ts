@@ -21,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Ng2EmojiModule } from 'ng2-emoji';
 import { CardDataProvider } from '../providers/card-data/card-data';
+import { ImageDataProvider } from '../providers/image-data/image-data';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -64,7 +65,8 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CardDataProvider
+    CardDataProvider,
+    ImageDataProvider
   ]
 })
 export class AppModule {}

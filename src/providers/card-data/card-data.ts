@@ -22,14 +22,9 @@ export class CardDataProvider {
       this.cards.splice(index, 1);
     }
   }
-
-  getCardName() {
-    return this.cards[0].name;
-  }
-
+  
   getCard(cardName)
   {
-    //TODO: error handling
     return this.cards.find(_ => _.name === cardName);
   }
 
