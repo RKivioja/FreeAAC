@@ -4,6 +4,7 @@ import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
 import { CardDataProvider } from '../../providers/card-data/card-data';
+import { ImageDataProvider } from '../../providers/image-data/image-data';
 
 import { Card } from '../../classes/card';
 import { WordSymbol } from '../../classes/wordsymbol';
@@ -23,8 +24,8 @@ export class CardcreatePage {
   cardName: string;
   selectedGridSize: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
-              public toastCtrl: ToastController, public cardDataProvider: CardDataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public toastCtrl: ToastController,
+              public cardDataProvider: CardDataProvider, public imageDataProvider: ImageDataProvider) {
     this.sizeOptions = [];
     this.card = new Card("", 4, new Array<WordSymbol>());
     this.cardName = "";
@@ -45,10 +46,12 @@ export class CardcreatePage {
   fillGrid()
   {
     let wordSymbols: Array<WordSymbol> = [];
+
+    let testImageURL = this.imageDataProvider.getImageURLs()[0];
     
     for (let i = 0; i < this.card.gridSize; i++)
     {
-      wordSymbols.push(new WordSymbol("+", "test"));
+      wordSymbols.push(new WordSymbol("+", testImageURL));
     } 
 
     this.card.wordSymbols = wordSymbols;
@@ -62,7 +65,7 @@ export class CardcreatePage {
 
   promptForWordSymbol(wordSymbol) {
     let prompt = this.alertCtrl.create({
-      title: 'Lisää symboli',
+      title: 'Symboli',
       inputs: [
         {
           name: 'symbolname',

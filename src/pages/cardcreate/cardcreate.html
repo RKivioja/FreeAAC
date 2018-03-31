@@ -27,7 +27,8 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4 *ngFor="let wordSymbol of card.wordSymbols">
-          <button ion-button (click)="promptForWordSymbol(wordSymbol)">{{wordSymbol.name}}</button>
+            <!-- <ion-img src="../../assets/imgs/wordsymbols/aakkoset/a_0.jpg" (click)="promptForWordSymbol(wordSymbol)"></ion-img> -->
+            <ion-img src={{wordSymbol.symbolImageURL}} (click)="promptForWordSymbol(wordSymbol)"></ion-img>
         </ion-col>
       </ion-row>
     </ion-grid>

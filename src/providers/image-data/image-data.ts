@@ -1,17 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Img } from 'ionic-angular';
 
-/*
-  Generated class for the ImageDataProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ImageDataProvider {
 
+  imageURLs: Array<string>
+
   constructor(public http: HttpClient) {
-    console.log('Hello ImageDataProvider Provider');
+    this.imageURLs = [];
+
+    this.loadImageURLs();
+  }
+
+  getImageURLs()
+  {
+    return this.imageURLs;
+  }
+
+  loadImageURLs()
+  {
+    let imageURL = "../../assets/imgs/wordsymbols/aakkoset/a_0.jpg";
+
+    this.imageURLs.push(imageURL);
   }
 
 }

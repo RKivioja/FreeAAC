@@ -1,11 +1,11 @@
 export class WordSymbol {
 
   private _name: string;
-  private _symbolImage: string;
+  private _symbolImageURL: string;
 
   constructor(Name: string, symbolImage: string) {
     this._name = Name,
-    this._symbolImage = symbolImage;
+    this._symbolImageURL = symbolImage;
   }
 
   set name(newName: string) {
@@ -14,5 +14,9 @@ export class WordSymbol {
 
   get name() {
     return this._name;
+  }
+
+  get symbolImageURL() {
+    return this._symbolImageURL;
   }
 }
