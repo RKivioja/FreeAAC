@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
 import { CardDataProvider } from '../../providers/card-data/card-data';
@@ -10,6 +10,7 @@ import { Card } from '../../classes/card';
 import { WordSymbol } from '../../classes/wordsymbol';
 
 import { HomePage } from '../home/home';
+import { SelectsymbolmodalPage } from '../selectsymbolmodal/selectsymbolmodal';
 
 @IonicPage()
 @Component({
@@ -24,7 +25,7 @@ export class CardcreatePage {
   cardName: string;
   selectedGridSize: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public toastCtrl: ToastController,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public toastCtrl: ToastController,
               public cardDataProvider: CardDataProvider, public imageDataProvider: ImageDataProvider) {
     this.sizeOptions = [];
     this.card = new Card("", 4, new Array<WordSymbol>());
@@ -46,12 +47,11 @@ export class CardcreatePage {
   fillGrid()
   {
     let wordSymbols: Array<WordSymbol> = [];
-
-    let testImageURL = this.imageDataProvider.getImageURLs()[0];
     
     for (let i = 0; i < this.card.gridSize; i++)
     {
-      wordSymbols.push(new WordSymbol("+", testImageURL));
+      //TODO: lataa placeholderit ja tarjoa kuvia vasta modaalissa
+      wordSymbols.push(new WordSymbol("+", this.imageDataProvider.getImageURLs()[i]));
     } 
 
     this.card.wordSymbols = wordSymbols;
@@ -64,27 +64,8 @@ export class CardcreatePage {
   }
 
   promptForWordSymbol(wordSymbol) {
-    let prompt = this.alertCtrl.create({
-      title: 'Symboli',
-      inputs: [
-        {
-          name: 'symbolname',
-          placeholder: 'Symboli'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Peruuta'
-        },
-        {
-          text: 'Tallenna',
-          handler: data => {
-            this.card.wordSymbols[this.card.wordSymbols.indexOf(wordSymbol)].name = data.symbolname;
-          }
-        }
-      ]
-    });
-    prompt.present();
+    let modal = this.modalCtrl.create(SelectsymbolmodalPage);
+    modal.present();
   }
 
   saveButtonTapped() {

@@ -12,7 +12,7 @@ import { WordSymbol } from '../../classes/wordsymbol';
 })
 export class MainPage {
 
-  message: Array<String>;
+  message: Array<string>;
   messageSize: number;
   static readonly DEFAULT_MESSAGESIZE = 3;
 
@@ -49,7 +49,7 @@ export class MainPage {
 
   wordSymbolTapped(event, wordSymbol) {
     if (this.message.length < this.messageSize) {
-      this.message.push(wordSymbol.name);
+      this.message.push(wordSymbol.symbolImageURL);
     }
   }
 

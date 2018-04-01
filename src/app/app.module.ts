@@ -15,6 +15,7 @@ import { OptionsPage } from '../pages/options/options';
 import { InfoPage } from '../pages/info/info';
 import { CardcreatePage } from '../pages/cardcreate/cardcreate';
 import { CarddeletePage} from '../pages/carddelete/carddelete';
+import { SelectsymbolmodalPage} from '../pages/selectsymbolmodal/selectsymbolmodal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -35,7 +36,8 @@ export function createTranslateLoader(http: HttpClient) {
     OptionsPage,
     InfoPage,
     CardcreatePage,
-    CarddeletePage
+    CarddeletePage,
+    SelectsymbolmodalPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ export function createTranslateLoader(http: HttpClient) {
     OptionsPage,
     InfoPage,
     CardcreatePage,
-    CarddeletePage
+    CarddeletePage,
+    SelectsymbolmodalPage
   ],
   providers: [
     StatusBar,
