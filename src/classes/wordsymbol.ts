@@ -19,4 +19,8 @@ export class WordSymbol {
   get symbolImageURL() {
     return this._symbolImageURL;
   }
+
+  set symbolImageURL(newSymbolImageURL: string) {
+    this._symbolImageURL = newSymbolImageURL;
+  }
 }

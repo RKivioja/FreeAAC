@@ -27,6 +27,7 @@ export class CardcreatePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public toastCtrl: ToastController,
               public cardDataProvider: CardDataProvider, public imageDataProvider: ImageDataProvider) {
+
     this.sizeOptions = [];
     this.card = new Card("", 4, new Array<WordSymbol>());
     this.cardName = "";
@@ -64,8 +65,14 @@ export class CardcreatePage {
   }
 
   promptForWordSymbol(wordSymbol) {
-    let modal = this.modalCtrl.create(SelectsymbolmodalPage);
-    modal.present();
+    let selectSymbolModal = this.modalCtrl.create(SelectsymbolmodalPage);
+    selectSymbolModal.present();
+    selectSymbolModal.onDidDismiss(data => {
+      if(data != undefined)
+      {
+        this.card.wordSymbols.find(_ => _.symbolImageURL === wordSymbol.symbolImageURL).symbolImageURL = data;
+      }
+    })
   }
 
   saveButtonTapped() {

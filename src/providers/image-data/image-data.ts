@@ -27,10 +27,10 @@ export class ImageDataProvider {
     }); */
 
     let urlList: string[] = [
-      "../../assets/imgs/wordsymbols/aakkoset/a_0.jpg?",
-      "../../assets/imgs/wordsymbols/aakkoset/aa.jpg?",
-      "../../assets/imgs/wordsymbols/aakkoset/b.jpg?",
-      "../../assets/imgs/wordsymbols/aakkoset/c.jpg?"
+      "../../assets/imgs/wordsymbols/aakkoset/a_0.jpg",
+      "../../assets/imgs/wordsymbols/aakkoset/aa.jpg",
+      "../../assets/imgs/wordsymbols/aakkoset/b.jpg",
+      "../../assets/imgs/wordsymbols/aakkoset/c.jpg"
     ];
 
     for (let i = 0; i < urlList.length; i++)

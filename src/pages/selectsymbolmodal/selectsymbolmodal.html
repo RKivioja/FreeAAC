@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
       <ion-title>
-        Description
+        {{ 'Symboli' | translate }}
       </ion-title>
       <ion-buttons start>
         <button ion-button (click)="dismiss()">
@@ -12,19 +12,17 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-list>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src=""/>
-          </ion-avatar>
-          <h2>nimi</h2>
-          <p>quote</p>
-        </ion-item>
-        <ion-item>
-          Kebab
-          <ion-note item-end>
-            kebab
-          </ion-note>
-        </ion-item>
-    </ion-list>
+    <ion-item>
+        <ion-label>{{ 'Symboli' | translate }}</ion-label>
+        <ion-select>
+            <ion-option>Aakkoset</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-3 *ngFor="let symbolImageOption of symbolImageOptions">
+                <ion-img src={{symbolImageOption}} (click)="selection(symbolImageOption)"></ion-img>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
   </ion-content>
