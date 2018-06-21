@@ -29,7 +29,13 @@ export class CardcreatePage {
               public cardDataProvider: CardDataProvider, public imageDataProvider: ImageDataProvider) {
 
     this.sizeOptions = [];
-    this.card = new Card("", 4, new Array<WordSymbol>());
+
+    if(this.selectedGridSize == undefined)
+    {
+      this.selectedGridSize = 4;
+    }
+
+    this.card = new Card("", this.selectedGridSize, new Array<WordSymbol>());
     this.cardName = "";
 
     this.loadSizeOptions();
@@ -49,6 +55,8 @@ export class CardcreatePage {
   {
     let wordSymbols: Array<WordSymbol> = [];
     
+    console.log(this.card.gridSize);
+
     for (let i = 0; i < this.card.gridSize; i++)
     {
       //TODO: lataa placeholderit ja tarjoa kuvia vasta modaalissa
@@ -76,15 +84,28 @@ export class CardcreatePage {
   }
 
   saveButtonTapped() {
-    this.saveCardData();
 
-    this.navCtrl.push(HomePage);
+    if(!(this.cardName.length === 0) || this.cardName.trim())
+    {
+      this.saveCardData();
 
-    let cardSavedToast = this.toastCtrl.create({
-      message: 'Kortin tallentaminen onnistui',
-      duration: 3000
-    });
-    cardSavedToast.present();
+      this.navCtrl.push(HomePage);
+  
+      let cardSavedToast = this.toastCtrl.create({
+        message: 'Kortin tallentaminen onnistui',
+        duration: 3000
+      });
+      cardSavedToast.present();
+    }
+    else
+    {
+      let cardNameMissingToast = this.toastCtrl.create({
+        message: 'Kortille täytyy antaa nimi ennen tallentamista',
+        duration: 3000
+      });
+      cardNameMissingToast.present();
+    }
+
   }
 
   cancelButtonTapped() {

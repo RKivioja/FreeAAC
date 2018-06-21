@@ -10,8 +10,8 @@
 <ion-content>
   <ion-row center>
     <div col-8 class="message-box" padding margin-vertical>
-      <ion-col width-33 *ngFor="let part of message">
-          <ion-img src={{part}}></ion-img>
+      <ion-col col-4 *ngFor="let part of message">
+          <img src={{part}}/>
       </ion-col>
     </div>
     <div col-2>
@@ -31,11 +31,11 @@
   </ion-row>
   <ion-row>
     <ion-grid>
-      <ion-row>
-        <ion-col col-4 *ngFor="let wordSymbol of wordSymbols" (click)="wordSymbolTapped($event, wordSymbol)">
-            <ion-img src={{wordSymbol.symbolImageURL}}></ion-img>
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col col-4 *ngFor="let wordSymbol of wordSymbols" (click)="wordSymbolTapped($event, wordSymbol)">
+            <img src={{wordSymbol.symbolImageURL}}/>
+          </ion-col>
+        </ion-row>
     </ion-grid>
   </ion-row>
 </ion-content>
