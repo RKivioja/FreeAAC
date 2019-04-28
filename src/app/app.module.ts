@@ -20,7 +20,6 @@ import { SelectsymbolmodalPage} from '../pages/selectsymbolmodal/selectsymbolmod
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Ng2EmojiModule } from 'ng2-emoji';
 import { CardDataProvider } from '../providers/card-data/card-data';
 import { ImageDataProvider } from '../providers/image-data/image-data';
 
@@ -42,7 +41,6 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    Ng2EmojiModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

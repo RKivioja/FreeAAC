@@ -10,18 +10,22 @@ import { ImageDataProvider } from '../../providers/image-data/image-data';
 })
 export class SelectsymbolmodalPage {
 
-  symbolImageOptions: Array<string>;
+  public symbolImageOptions: Array<string>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
-              public imageDataProvider: ImageDataProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public imageDataProvider: ImageDataProvider
+    ) {
     this.symbolImageOptions = imageDataProvider.getImageURLs();
   }
 
-  dismiss() {
+  public dismiss() {
     this.viewCtrl.dismiss();
   }
 
-  selection(imageURL) {
+  public selection(imageURL) {
     this.viewCtrl.dismiss(imageURL);
   }
 

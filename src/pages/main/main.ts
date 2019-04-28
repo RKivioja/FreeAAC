@@ -12,48 +12,41 @@ import { WordSymbol } from '../../classes/wordsymbol';
 })
 export class MainPage {
 
-  message: Array<string>;
-  messageSize: number;
-  static readonly DEFAULT_MESSAGESIZE = 3;
+  private static readonly DEFAULT_MESSAGESIZE = 3;
+  private static readonly DEFAULT_GRIDSIZE = 12;
 
-  selectedCardName: string;
-  cardOptions: Array<Card>;
-  wordSymbols: Array<WordSymbol>;
+  public message: Array<string> = [];
+  public messageSize: number = MainPage.DEFAULT_MESSAGESIZE;
+  public selectedCardName: string;
+  public cardOptions: Array<Card> = [];
+  public wordSymbols: Array<WordSymbol> = [];
+  public gridSize: number = MainPage.DEFAULT_GRIDSIZE;
 
-  gridSize: number;
-  static readonly DEFAULT_GRIDSIZE = 12;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private cardDataProvider: CardDataProvider) {
-    this.message = [];
-    this.messageSize = MainPage.DEFAULT_MESSAGESIZE;
-    this.cardOptions = [];
-    this.wordSymbols = [];
-    this.gridSize = MainPage.DEFAULT_GRIDSIZE;
-
-    this.loadCardOptions();
-  }
-
-  loadCardOptions() {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private cardDataProvider: CardDataProvider
+    ) {
     this.cardOptions = this.cardDataProvider.cards;
   }
 
-  cardSelected() {
+  public cardSelected() {
     var loadedCard = this.cardDataProvider.getCard(this.selectedCardName);
     this.loadWordSymbols(loadedCard);
   }
 
-  loadWordSymbols(card) {
-    this.wordSymbols = card.wordSymbols;
-    this.gridSize = card.gridSize;
-  }
-
-  wordSymbolTapped(event, wordSymbol) {
+  public wordSymbolTapped(event, wordSymbol) {
     if (this.message.length < this.messageSize) {
       this.message.push(wordSymbol.symbolImageURL);
     }
   }
 
-  backspaceTapped() {
+  public backspaceTapped() {
     this.message.pop();
+  }
+  
+  private loadWordSymbols(card) {
+    this.wordSymbols = card.wordSymbols;
+    this.gridSize = card.gridSize;
   }
 }

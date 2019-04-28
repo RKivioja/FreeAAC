@@ -10,14 +10,17 @@ import { CarddeletePage } from '../carddelete/carddelete';
 })
 export class OptionsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams
+    ) {
   }
 
-  createNewCardButtonTapped() {
+  public createNewCardButtonTapped() {
     this.navCtrl.push(CardcreatePage);
   }
 
-  deleteCardButtonTapped() {
+  public deleteCardButtonTapped() {
     this.navCtrl.push(CarddeletePage);
   }
 

@@ -6,20 +6,18 @@ import { glob} from 'glob';
 @Injectable()
 export class ImageDataProvider {
 
-  imageURLs: Array<string>
+  public imageURLs: Array<string> = [];
 
-  constructor(public http: HttpClient) {
-    this.imageURLs = [];
-
+  constructor(public httpClient: HttpClient) {
     this.loadImageURLs();
   }
 
-  getImageURLs()
+  public getImageURLs()
   {
     return this.imageURLs;
   }
 
-  loadImageURLs()
+  private loadImageURLs()
   {
 
      /* glob("../../assets/imgs/wordsymbols/aakkoset/*.jpg", function (er, files) {

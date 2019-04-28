@@ -1,6 +1,7 @@
 {
   "rules": {
     "no-duplicate-variable": true,
+    "member-access": true,
     "no-unused-variable": [
       true
     ]

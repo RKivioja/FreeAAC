@@ -10,19 +10,20 @@ import { InfoPage } from '../info/info';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(
+    public navCtrl: NavController
+    ) {
   }
 
-  startButtonTapped(event, item) {
+  public startButtonTapped(event, item) {
     this.navCtrl.push(MainPage);
   }
 
-  optionsButtonTapped(event, item) {
+  public optionsButtonTapped(event, item) {
     this.navCtrl.push(OptionsPage);
   }
 
-  infoButtonTapped(event, item) {
+  public infoButtonTapped(event, item) {
     this.navCtrl.push(InfoPage);
   }
 }

@@ -20,59 +20,26 @@ import { SelectsymbolmodalPage } from '../selectsymbolmodal/selectsymbolmodal';
 
 export class CardcreatePage {
   
-  card: Card;
-  sizeOptions: Array<{ gridSize: number }>;
-  cardName: string;
-  selectedGridSize: number;
+  public card: Card;
+  public sizeOptions: Array<{ gridSize: number }> = [];
+  public cardName: string = "";
+  public selectedGridSize: number = 4;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public toastCtrl: ToastController,
-              public cardDataProvider: CardDataProvider, public imageDataProvider: ImageDataProvider) {
-
-    this.sizeOptions = [];
-
-    if(this.selectedGridSize == undefined)
-    {
-      this.selectedGridSize = 4;
-    }
-
+  public constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    public toastCtrl: ToastController,
+    public cardDataProvider: CardDataProvider,
+    public imageDataProvider: ImageDataProvider
+    ) {
     this.card = new Card("", this.selectedGridSize, new Array<WordSymbol>());
-    this.cardName = "";
 
     this.loadSizeOptions();
     this.fillGrid();
   }
 
-  loadSizeOptions() {
-    for (let i = 2; i <= 12; i = i + 2)
-    {
-      this.sizeOptions.push({
-        gridSize: i
-      });
-    }
-  }
-
-  fillGrid()
-  {
-    let wordSymbols: Array<WordSymbol> = [];
-    
-    console.log(this.card.gridSize);
-
-    for (let i = 0; i < this.card.gridSize; i++)
-    {
-      //TODO: lataa placeholderit ja tarjoa kuvia vasta modaalissa
-      wordSymbols.push(new WordSymbol("+", this.imageDataProvider.getImageURLs()[i]));
-    } 
-
-    this.card.wordSymbols = wordSymbols;
-  }
-
-  sizeSelected() {
-    this.card.gridSize = this.selectedGridSize;
-    this.card.wordSymbols = [];
-    this.fillGrid();
-  }
-
-  promptForWordSymbol(wordSymbol) {
+  public promptForWordSymbol(wordSymbol) {
     let selectSymbolModal = this.modalCtrl.create(SelectsymbolmodalPage);
     selectSymbolModal.present();
     selectSymbolModal.onDidDismiss(data => {
@@ -83,8 +50,13 @@ export class CardcreatePage {
     })
   }
 
-  saveButtonTapped() {
+  public sizeSelected() {
+    this.card.gridSize = this.selectedGridSize;
+    this.card.wordSymbols = [];
+    this.fillGrid();
+  }
 
+  public saveButtonTapped() {
     if(!(this.cardName.length === 0) || this.cardName.trim())
     {
       this.saveCardData();
@@ -105,14 +77,35 @@ export class CardcreatePage {
       });
       cardNameMissingToast.present();
     }
-
   }
 
-  cancelButtonTapped() {
+  public cancelButtonTapped() {
     this.navCtrl.pop();
   }
 
-  saveCardData() {
+  private loadSizeOptions() {
+    for (let i = 2; i <= 12; i = i + 2)
+    {
+      this.sizeOptions.push({
+        gridSize: i
+      });
+    }
+  }
+
+  private fillGrid()
+  {
+    let wordSymbols: Array<WordSymbol> = [];
+    
+    for (let i = 0; i < this.card.gridSize; i++)
+    {
+      //TODO: lataa placeholderit ja tarjoa kuvia vasta modaalissa
+      wordSymbols.push(new WordSymbol("+", this.imageDataProvider.getImageURLs()[i]));
+    } 
+
+    this.card.wordSymbols = wordSymbols;
+  }
+
+  private saveCardData() {
     this.card.name = this.cardName;
     this.cardDataProvider.saveCard(this.card);
   }

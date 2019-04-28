@@ -6,29 +6,30 @@ import { Card } from '../../classes/card';
 @Injectable()
 export class CardDataProvider {
   
-  cards: Array<Card>;
+  public cards: Array<Card> = [];
  
-  constructor(public http: HttpClient) {
-    this.cards = [];
+  constructor(
+    public httpClient: HttpClient
+    ) {
   }
 
-  saveCard(card) {
+  public saveCard(card: Card) {
     this.cards.push(card);
   }
 
-  deleteCard(card) {
+  public deleteCard(card: Card) {
     var index = this.cards.indexOf(card, 0);
     if (index > -1) {
       this.cards.splice(index, 1);
     }
   }
   
-  getCard(cardName)
+  public getCard(cardName: string)
   {
     return this.cards.find(_ => _.name === cardName);
   }
 
-  getCards()
+  public getCards()
   {
     return this.cards;
   }
