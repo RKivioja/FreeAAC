@@ -12,7 +12,7 @@ import { WordSymbol } from '../../classes/wordsymbol';
 })
 export class MainPage {
 
-  private static readonly DEFAULT_MESSAGESIZE = 3;
+  private static readonly DEFAULT_MESSAGESIZE = 9;
   private static readonly DEFAULT_GRIDSIZE = 12;
 
   public message: Array<string> = [];

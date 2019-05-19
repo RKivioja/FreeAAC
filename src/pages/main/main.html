@@ -14,13 +14,12 @@
           <img src={{part}}/>
       </ion-col>
     </div>
-    <div col-2>
-      <ion-icon class="icon" margin-top name="backspace" (click)="backspaceTapped()"></ion-icon>
-      <ion-icon class="icon" margin-top name="volume-up"></ion-icon>
-    </div>
+    <ion-icon col-1 class="icon" size="large" margin-top name="volume-up"></ion-icon>
+    <ion-icon col-1 class="icon" size="large" margin-top name="backspace" (click)="backspaceTapped()"></ion-icon>
   </ion-row>
+  <hr>
   <ion-row>
-    <ion-list class="card-list" col-12>
+    <ion-list class="card-list" col-4>
       <ion-item>
         <ion-label>{{ 'Kortti' | translate }}</ion-label>
         <ion-select [(ngModel)]="selectedCardName" (ionChange)="cardSelected()">
@@ -29,10 +28,11 @@
       </ion-item>
     </ion-list>
   </ion-row>
+  <hr>
   <ion-row>
     <ion-grid>
         <ion-row>
-          <ion-col col-4 *ngFor="let wordSymbol of wordSymbols" (click)="wordSymbolTapped($event, wordSymbol)">
+          <ion-col col-2 *ngFor="let wordSymbol of wordSymbols" (click)="wordSymbolTapped($event, wordSymbol)">
             <img src={{wordSymbol.symbolImageURL}}/>
           </ion-col>
         </ion-row>

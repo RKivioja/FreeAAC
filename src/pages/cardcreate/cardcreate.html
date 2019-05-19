@@ -11,9 +11,9 @@
   </ion-item>
   
   <ion-row>
-    <ion-list class="card-size-list" col-12>
+    <ion-list class="card-size-list" col-2>
       <ion-item>
-        <ion-label>{{ 'Kortin koko' | translate }}</ion-label>
+        <ion-label>{{ 'Koko' | translate }}</ion-label>
         <ion-select [(ngModel)]="selectedGridSize" (ionChange)="sizeSelected()">
           <ion-option *ngFor="let sizeOption of sizeOptions">
             {{sizeOption.gridSize}}
@@ -22,17 +22,17 @@
       </ion-item>
     </ion-list>
   </ion-row>
-  
+  <hr>
   <ion-row>
     <ion-grid>
       <ion-row>
-        <ion-col col-4 *ngFor="let wordSymbol of card.wordSymbols">
+        <ion-col col-2 *ngFor="let wordSymbol of card.wordSymbols">
             <img src={{wordSymbol.symbolImageURL}} (click)="promptForWordSymbol(wordSymbol)"/>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-row>
-  
+  <hr>
   <ion-row>
       <button ion-button (click)="saveButtonTapped()">{{ 'Tallenna' | translate }}</button>
       <button ion-button color="light" (click)="cancelButtonTapped()">{{ 'Peruuta' | translate }}</button>
